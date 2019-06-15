@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="isokur.xsl"?>
+<Tarih_Date Tarih="14.06.2019" Date="06/14/2019"  Bulten_No="2019/112" >
+	<Currency CrossOrder="0" Kod="USD" CurrencyCode="USD">
+			<Unit>Puding</Unit>
+			<Isim>kakao, şeker, nişasta</Isim>
+			<CurrencyName>#puding</CurrencyName>
+			<ForexSelling>5.8932</ForexSelling>
+			<BanknoteBuying>5.8785</BanknoteBuying>
+			<BanknoteSelling>5.9021</BanknoteSelling>
+			<CrossRateUSD/>
+			<CrossRateOther/>
+		
+	</Currency>
+	<Currency CrossOrder="1" Kod="AUD" CurrencyCode="AUD">
+			<Unit>Helva</Unit>
+			<Isim>un, yağ, şeker</Isim>
+			<CurrencyName>#helva</CurrencyName>
+			<ForexBuying>4.0490</ForexBuying>
+			<ForexSelling>4.0754</ForexSelling>
+			<BanknoteBuying>4.0303</BanknoteBuying>
+			<BanknoteSelling>4.0998</BanknoteSelling>
+				<CrossRateUSD>1.4495</CrossRateUSD>
+				<CrossRateOther/>
+		
+	</Currency>
+	<Currency CrossOrder="1" Kod="AUD" CurrencyCode="AUD">
+		<Unit>Sulu Köfte</Unit>
+		<Isim>kıyma, baharat , yumurta</Isim>
+		<CurrencyName>#köfte</CurrencyName>
+		<ForexBuying>4.0490</ForexBuying>
+		<ForexSelling>4.0754</ForexSelling>
+		<BanknoteBuying>4.0303</BanknoteBuying>
+		<BanknoteSelling>4.0998</BanknoteSelling>
+		<CrossRateUSD>1.4495</CrossRateUSD>
+		<CrossRateOther/>
+
+	</Currency>
+	<Currency CrossOrder="1" Kod="AUD" CurrencyCode="AUD">
+		<Unit>Pilav</Unit>
+		<Isim>pirinç, tuz, yağ</Isim>
+		<CurrencyName>#pilav</CurrencyName>
+		<ForexBuying>4.0490</ForexBuying>
+		<ForexSelling>4.0754</ForexSelling>
+		<BanknoteBuying>4.0303</BanknoteBuying>
+		<BanknoteSelling>4.0998</BanknoteSelling>
+		<CrossRateUSD>1.4495</CrossRateUSD>
+		<CrossRateOther/>
+
+	</Currency>
+	<Currency CrossOrder="1" Kod="AUD" CurrencyCode="AUD">
+		<Unit>Salata</Unit>
+		<Isim>marul, salatalık, limon</Isim>
+		<CurrencyName>#salata</CurrencyName>
+		<ForexBuying>4.0490</ForexBuying>
+		<ForexSelling>4.0754</ForexSelling>
+		<BanknoteBuying>4.0303</BanknoteBuying>
+		<BanknoteSelling>4.0998</BanknoteSelling>
+		<CrossRateUSD>1.4495</CrossRateUSD>
+		<CrossRateOther/>
+
+	</Currency>
+	<Currency CrossOrder="1" Kod="AUD" CurrencyCode="AUD">
+		<Unit>Menemen</Unit>
+		<Isim>domates, yumurta, biber</Isim>
+		<CurrencyName>#menemen</CurrencyName>
+		<ForexBuying>5.8826</ForexBuying>
+		<ForexBuying>4.0490</ForexBuying>
+		<ForexSelling>4.0754</ForexSelling>
+		<BanknoteBuying>4.0303</BanknoteBuying>
+		<BanknoteSelling>4.0998</BanknoteSelling>
+		<CrossRateUSD>1.4495</CrossRateUSD>
+		<CrossRateOther/>
+
+	</Currency>
+
+
+</Tarih_Date>

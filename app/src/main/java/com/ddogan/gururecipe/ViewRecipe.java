@@ -1,6 +1,7 @@
 package com.ddogan.gururecipe;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.StrictMode;
 import android.provider.DocumentsContract;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +16,9 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -36,9 +39,44 @@ public class ViewRecipe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_recipe);
         tarifler = (ListView) findViewById(R.id.listView);
-        
-        WebServisiIleListeyiDoldur();
+
+         XmlVerisiOku();
+       // WebServisiIleListeyiDoldur();
     }
+    private void XmlVerisiOku() {
+        Document document = null;
+        try {
+            Resources r = getResources();
+            InputStream   xmlFile = r.openRawResource(R.raw.tarifler);
+            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder documentBuilder = null;
+            documentBuilder = documentBuilderFactory.newDocumentBuilder();
+            document = documentBuilder.parse(xmlFile);
+        }  catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }
+        NodeList tarifNodeList = document.getElementsByTagName("Currency");
+
+        for (int i=0; i<tarifNodeList.getLength(); i++){
+
+            Element element = (Element) tarifNodeList.item(i);
+            NodeList nodeListAd = element.getElementsByTagName("Unit");
+            NodeList nodeListIcerik = element.getElementsByTagName("Isim");
+            NodeList nodeListEtiket = element.getElementsByTagName("CurrencyName");
+            String icerik = nodeListIcerik.item(0).getFirstChild().getNodeValue();
+            String etiket = nodeListEtiket.item(0).getFirstChild().getNodeValue();
+            String ad = nodeListAd.item(0).getFirstChild().getNodeValue();
+            tariflerJava.add(new Tarif(ad ,icerik, etiket));
+        }
+
+        CustomAdapter adapter = new CustomAdapter(context,tariflerJava);
+        tarifler.setAdapter(adapter);
+    }
+
 
     private void WebServisiIleListeyiDoldur() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -57,18 +95,13 @@ public class ViewRecipe extends AppCompatActivity {
                 BufferedInputStream stream = new BufferedInputStream(baglanti.getInputStream());
                 DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-
                 Document document = documentBuilder.parse(stream);
-
-               // NodeList tarifNodeList = document.getElementsByTagName("Tarif");
                 NodeList tarifNodeList = document.getElementsByTagName("Currency");
 
                 for (int i=0; i<tarifNodeList.getLength(); i++){
 
                     Element element = (Element) tarifNodeList.item(i);
-                    //NodeList nodeListIcerik = element.getElementsByTagName("Icerik");
                     NodeList nodeListIcerik = element.getElementsByTagName("Unit");
-                   //NodeList nodeListEtiket = element.getElementsByTagName("Etiket");
                     NodeList nodeListEtiket = element.getElementsByTagName("Isim");
                     String icerik = nodeListIcerik.item(0).getFirstChild().getNodeValue();
                     String etiket = nodeListEtiket.item(0).getFirstChild().getNodeValue();
@@ -87,7 +120,5 @@ public class ViewRecipe extends AppCompatActivity {
         }
         CustomAdapter adapter = new CustomAdapter(context,tariflerJava);
         tarifler.setAdapter(adapter);
-       // ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.listemiz, tarif_list);//buraya <~> gelebilir!!!//android.R.layout.simple_expandable_list_item_1
-        //tarifler.setAdapter(adapter);
     }
 }

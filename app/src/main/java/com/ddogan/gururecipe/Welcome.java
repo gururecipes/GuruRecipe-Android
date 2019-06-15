@@ -5,17 +5,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Welcome extends AppCompatActivity {
 
     Button btn;
     TextView tv;
+    ImageView iv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         tv = (TextView) findViewById(R.id.islemtv);
+        iv = (ImageView) findViewById(R.id.imageView3);
     }
     public void tiklandi(View view){
         if(view.getId()==R.id.ekleButon){

@@ -10,14 +10,14 @@
     <Button
         android:id="@+id/ekleButon"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:text="Tarif Ekle"
         android:onClick="tiklandi"
         android:textAlignment="center"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="159dp" />
+        app:layout_constraintBottom_toTopOf="@+id/gorButon"
+        app:layout_constraintTop_toBottomOf="@+id/islemtv" />
 
     <Button
         android:id="@+id/silButon"
@@ -28,22 +28,20 @@
         android:textAlignment="center"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/gorButon"
-        app:layout_constraintTop_toBottomOf="@+id/ekleButon" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gorButon" />
 
     <Button
         android:id="@+id/gorButon"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:text="Tarifleri Gör"
         android:onClick="tiklandi"
         android:textAlignment="center"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/silButon"
-        app:layout_constraintVertical_bias="0.0"
-        android:layout_marginBottom="8dp" />
+        app:layout_constraintBottom_toTopOf="@+id/silButon"
+        app:layout_constraintTop_toBottomOf="@+id/ekleButon" />
 
     <TextView
         android:id="@+id/islemtv"
@@ -55,10 +53,21 @@
         android:textColor="@color/cardview_light_background"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/ekleButon"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.374" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ekleButon"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/x"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintBottom_toTopOf="@+id/islemtv"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
