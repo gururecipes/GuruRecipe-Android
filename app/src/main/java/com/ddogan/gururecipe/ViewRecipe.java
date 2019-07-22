@@ -1,14 +1,22 @@
 package com.ddogan.gururecipe;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.os.StrictMode;
-import android.provider.DocumentsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -16,11 +24,9 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import java.io.BufferedInputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,20 +35,77 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-public class ViewRecipe extends AppCompatActivity {
+public class ViewRecipe extends AppCompatActivity {//implements SearchView.OnQueryTextListener
 
     ListView tarifler;
     List<Tarif> tariflerJava = new ArrayList<>();
     Context context = this;
+    CustomAdapter adapter;
+    EditText et;
+    ArrayList resimUrls = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_recipe);
         tarifler = (ListView) findViewById(R.id.listView);
 
-         XmlVerisiOku();
+        et = (EditText) findViewById(R.id.search);
+       resimUrls.add("http://lezzet.blob.core.windows.net/images-category/turkiye-turu.jpg");
+        XmlVerisiOku();
+        et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.toString().equals("")){
+                    adapter = new CustomAdapter(context,tariflerJava);
+                    tarifler.setAdapter(adapter);
+                }else{
+                    arama(s.toString().toLowerCase());
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        tarifler.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(getApplicationContext(), "İşleminiz alındı.", Toast.LENGTH_LONG).show();
+                //position'i alinan veri silinecek
+                Tarif tarif = tariflerJava.get(position);
+                tarifDetaylariniGoster(tarif);
+            }
+        });
        // WebServisiIleListeyiDoldur();
     }
+    private void arama(String kelime){
+        List<Tarif> filter = new ArrayList<>();
+
+        for (Tarif t: tariflerJava){
+            if(t.getTarifAdi().toLowerCase().contains(kelime.toLowerCase())||t.getTarifEtiket().toLowerCase().contains(kelime.toLowerCase())||t.getTarifIcerik().toLowerCase().contains(kelime.toLowerCase())){
+                filter.add(t);
+            }
+        }
+        adapter = new CustomAdapter(context,filter);
+        tarifler.setAdapter(adapter);
+    }
+
+    private void tarifDetaylariniGoster(Tarif tarif) {
+        Intent intent = new Intent(getApplicationContext(), TarifDetaylari.class);
+        intent.putExtra("tarifAdi", tarif.getTarifAdi() );
+        intent.putExtra("tarifEtiket", tarif.getTarifEtiket());
+        intent.putExtra("tarifIcerik", tarif.getTarifIcerik());
+       // intent.putExtra("tarifResimUrl", (CharSequence) tarif.getTarifResimUrl());
+        intent.putParcelableArrayListExtra("tarifResimUrl", tarif.getTarifResimUrl());
+        startActivity(intent);
+    }
+
     private void XmlVerisiOku() {
         Document document = null;
         try {
@@ -67,17 +130,25 @@ public class ViewRecipe extends AppCompatActivity {
             NodeList nodeListAd = element.getElementsByTagName("Unit");
             NodeList nodeListIcerik = element.getElementsByTagName("Isim");
             NodeList nodeListEtiket = element.getElementsByTagName("CurrencyName");
+            NodeList nodeListResim = element.getElementsByTagName("Picture");
             String icerik = nodeListIcerik.item(0).getFirstChild().getNodeValue();
             String etiket = nodeListEtiket.item(0).getFirstChild().getNodeValue();
             String ad = nodeListAd.item(0).getFirstChild().getNodeValue();
-            tariflerJava.add(new Tarif(ad ,icerik, etiket));
+            NodeList resimUrl = nodeListResim;
+            ArrayList n = new ArrayList();
+            for(int j=0;j<resimUrl.getLength();j++){
+                n.add(resimUrl.item(j).getFirstChild().getNodeValue());
+            }
+            tariflerJava.add(new Tarif(ad ,icerik, etiket, n));
         }
 
-        CustomAdapter adapter = new CustomAdapter(context,tariflerJava);
+        adapter = new CustomAdapter(context,tariflerJava);
         tarifler.setAdapter(adapter);
     }
 
-
+    /*
+        Ornek web servisten veri cekme
+     */
     private void WebServisiIleListeyiDoldur() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -107,7 +178,9 @@ public class ViewRecipe extends AppCompatActivity {
                     String etiket = nodeListEtiket.item(0).getFirstChild().getNodeValue();
 
                     tarif_list.add("icerik: "+icerik+ "etiket: "+ etiket+ " ");
-                    tariflerJava.add(new Tarif("tarif adi",icerik, etiket));
+                    //setImageResource(R.mipmap.recipe);
+                    String resimUrl=null;//burayı sonra kaldır
+                    tariflerJava.add(new Tarif("tarif adi",icerik, etiket, resimUrls));
                 }
             }
 
@@ -118,7 +191,8 @@ public class ViewRecipe extends AppCompatActivity {
             if(baglanti !=null)
                 baglanti.disconnect();
         }
-        CustomAdapter adapter = new CustomAdapter(context,tariflerJava);
+        adapter = new CustomAdapter(context,tariflerJava);
         tarifler.setAdapter(adapter);
     }
+
 }
