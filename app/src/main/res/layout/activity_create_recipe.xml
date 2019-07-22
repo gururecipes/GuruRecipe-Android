@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
     tools:context="com.ddogan.gururecipe.CreateRecipe">
 
     <TextView
@@ -11,89 +12,147 @@
         android:layout_width="76dp"
         android:layout_height="17dp"
         android:text="Etiket"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="115dp"
+        android:layout_height="48dp"
         android:text="Tarif Ekle"
+        android:background="#00adb5"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tarifText"
-        app:layout_constraintVertical_bias="0.77"
-        android:layout_marginBottom="8dp" />
+        app:layout_constraintVertical_bias="0.847"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintHorizontal_bias="0.501" />
 
     <EditText
         android:id="@+id/tarifText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="275dp"
+        android:layout_height="105dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textLongMessage"
+        android:hint="Yemek tarifinizi giriniz."
+        android:inputType="textMultiLine"
+        android:textAlignment="textStart"
+        android:textColor="@color/cardview_dark_background"
+        android:textColorHint="#908f8f"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/tv"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.896" />
+        app:layout_constraintVertical_bias="0.917" />
 
     <TextView
         android:id="@+id/tv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Yemek Tarifiniz"
-        android:textAlignment="center"
+        android:text="Malzemeler ve Yapılışı"
+        android:textAlignment="viewStart"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tarifText"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.885" />
+        app:layout_constraintVertical_bias="0.91" />
 
     <EditText
         android:id="@+id/etiketText"
-        android:layout_width="wrap_content"
+        android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Tarifinizin etiketini giriniz."
         android:inputType="text"
+        android:textAlignment="textStart"
+        android:textColor="@color/cardview_dark_background"
+        android:textColorHint="#908f8f"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.275"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv"
-        app:layout_constraintVertical_bias="0.357" />
+        app:layout_constraintVertical_bias="0.152" />
 
     <TextView
         android:id="@+id/tv0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tarif Adı"
-        android:textAlignment="center"
+        android:text="Yemek Adı"
+        android:textAlignment="viewStart"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tarifText"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.300" />
+        app:layout_constraintVertical_bias="0.062" />
 
     <EditText
         android:id="@+id/tarifAdiText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="275dp"
+        android:layout_height="49dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textLongMessage"
+        android:hint="Tarif adını giriniz."
+        android:inputType="textMultiLine"
+        android:textAlignment="textStart"
+        android:textColor="@color/cardview_dark_background"
+        android:textColorHint="#908f8f"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/tv"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.275"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.387" />
+        app:layout_constraintVertical_bias="0.142" />
+
+    <!--<ImageView
+        android:id="@+id/imageView"
+        android:layout_width="65dp"
+        android:layout_height="66dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />-->
+
+    <!--<Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="418dp" />-->
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="115dp"
+        android:layout_height="48dp"
+        android:background="#00adb5"
+        android:text="Resim Ekle"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/etiketText"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintVertical_bias="0.442" />
+
 
 
 </android.support.constraint.ConstraintLayout>

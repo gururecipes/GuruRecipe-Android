@@ -5,6 +5,8 @@
 			<Unit>Puding</Unit>
 			<Isim>kakao, şeker, nişasta</Isim>
 			<CurrencyName>#puding</CurrencyName>
+			<Picture>http://lezzet.blob.core.windows.net/images-category/sebze-yemekleri.jpg</Picture>
+			<Picture>http://lezzet.blob.core.windows.net/images-category/turkiye-turu.jpg</Picture>
 			<ForexSelling>5.8932</ForexSelling>
 			<BanknoteBuying>5.8785</BanknoteBuying>
 			<BanknoteSelling>5.9021</BanknoteSelling>
@@ -16,6 +18,7 @@
 			<Unit>Helva</Unit>
 			<Isim>un, yağ, şeker</Isim>
 			<CurrencyName>#helva</CurrencyName>
+			<Picture>http://lezzet.blob.core.windows.net/images-category/sebze-yemekleri.jpg</Picture>
 			<ForexBuying>4.0490</ForexBuying>
 			<ForexSelling>4.0754</ForexSelling>
 			<BanknoteBuying>4.0303</BanknoteBuying>
@@ -28,6 +31,7 @@
 		<Unit>Sulu Köfte</Unit>
 		<Isim>kıyma, baharat , yumurta</Isim>
 		<CurrencyName>#köfte</CurrencyName>
+		<Picture>http://lezzet.blob.core.windows.net/images-category/sebze-yemekleri.jpg</Picture>
 		<ForexBuying>4.0490</ForexBuying>
 		<ForexSelling>4.0754</ForexSelling>
 		<BanknoteBuying>4.0303</BanknoteBuying>
@@ -40,6 +44,7 @@
 		<Unit>Pilav</Unit>
 		<Isim>pirinç, tuz, yağ</Isim>
 		<CurrencyName>#pilav</CurrencyName>
+		<Picture>http://lezzet.blob.core.windows.net/images-category/sebze-yemekleri.jpg</Picture>
 		<ForexBuying>4.0490</ForexBuying>
 		<ForexSelling>4.0754</ForexSelling>
 		<BanknoteBuying>4.0303</BanknoteBuying>
@@ -52,6 +57,7 @@
 		<Unit>Salata</Unit>
 		<Isim>marul, salatalık, limon</Isim>
 		<CurrencyName>#salata</CurrencyName>
+		<Picture>http://lezzet.blob.core.windows.net/images-category/sebze-yemekleri.jpg</Picture>
 		<ForexBuying>4.0490</ForexBuying>
 		<ForexSelling>4.0754</ForexSelling>
 		<BanknoteBuying>4.0303</BanknoteBuying>
@@ -64,6 +70,7 @@
 		<Unit>Menemen</Unit>
 		<Isim>domates, yumurta, biber</Isim>
 		<CurrencyName>#menemen</CurrencyName>
+		<Picture>http://lezzet.blob.core.windows.net/images-category/sebze-yemekleri.jpg</Picture>
 		<ForexBuying>5.8826</ForexBuying>
 		<ForexBuying>4.0490</ForexBuying>
 		<ForexSelling>4.0754</ForexSelling>
