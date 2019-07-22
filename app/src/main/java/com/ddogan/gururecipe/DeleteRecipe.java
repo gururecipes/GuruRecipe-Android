@@ -18,10 +18,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import java.io.BufferedInputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -54,6 +52,7 @@ public class DeleteRecipe extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "İşleminiz alındı.", Toast.LENGTH_LONG).show();
                 //position'i alinan veri silinecek
+               // tariflerJava.get(position).;
             }
         });
     }
@@ -61,7 +60,7 @@ public class DeleteRecipe extends AppCompatActivity {
         Document document = null;
         try {
             Resources r = getResources();
-            InputStream xmlFile = r.openRawResource(R.raw.tarifler);
+            InputStream   xmlFile = r.openRawResource(R.raw.tarifler);
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = null;
             documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -74,16 +73,23 @@ public class DeleteRecipe extends AppCompatActivity {
             e.printStackTrace();
         }
         NodeList tarifNodeList = document.getElementsByTagName("Currency");
+
         for (int i=0; i<tarifNodeList.getLength(); i++){
 
             Element element = (Element) tarifNodeList.item(i);
             NodeList nodeListAd = element.getElementsByTagName("Unit");
             NodeList nodeListIcerik = element.getElementsByTagName("Isim");
             NodeList nodeListEtiket = element.getElementsByTagName("CurrencyName");
+            NodeList nodeListResim = element.getElementsByTagName("Picture");
             String icerik = nodeListIcerik.item(0).getFirstChild().getNodeValue();
             String etiket = nodeListEtiket.item(0).getFirstChild().getNodeValue();
             String ad = nodeListAd.item(0).getFirstChild().getNodeValue();
-            tariflerJava.add(new Tarif(ad ,icerik, etiket));
+            NodeList resimUrl = nodeListResim;
+            ArrayList n = new ArrayList();
+            for(int j=0;j<resimUrl.getLength();j++){
+                n.add(resimUrl.item(j).getFirstChild().getNodeValue());
+            }
+            tariflerJava.add(new Tarif(ad ,icerik, etiket, n));
         }
 
         CustomAdapter adapter = new CustomAdapter(context,tariflerJava);
@@ -181,7 +187,8 @@ public class DeleteRecipe extends AppCompatActivity {
                     String icerik = nodeListIcerik.item(0).getFirstChild().getNodeValue();
                     String etiket = nodeListEtiket.item(0).getFirstChild().getNodeValue();
                     tarif_list.add("icerik: "+icerik+ "etiket: "+ etiket+ " ");
-                    tariflerJava.add(new Tarif("tarif adi",icerik, etiket));
+                    String resimUrl=null;//burayı sonra kaldır
+                    tariflerJava.add(new Tarif("tarif adi",icerik, etiket, null));
                 }
             }
 
