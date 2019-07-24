@@ -82,7 +82,7 @@ public class ViewRecipe extends AppCompatActivity {//implements SearchView.OnQue
                 //position'i alinan veri silinecek
                 Tarif tarif = tariflerJava.get(position);
                 tarifDetaylariniGoster(tarif);
-                tariflerJava=tariflerJavaYedek;
+                //tariflerJava=tariflerJavaYedek;
             }
         });
        // WebServisiIleListeyiDoldur();
