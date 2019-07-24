@@ -39,6 +39,7 @@ public class ViewRecipe extends AppCompatActivity {//implements SearchView.OnQue
 
     ListView tarifler;
     List<Tarif> tariflerJava = new ArrayList<>();
+    List<Tarif> tariflerJavaYedek = new ArrayList<>();
     Context context = this;
     CustomAdapter adapter;
     EditText et;
@@ -61,6 +62,7 @@ public class ViewRecipe extends AppCompatActivity {//implements SearchView.OnQue
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(s.toString().equals("")){
+                    tariflerJava=tariflerJavaYedek;
                     adapter = new CustomAdapter(context,tariflerJava);
                     tarifler.setAdapter(adapter);
                 }else{
@@ -80,6 +82,7 @@ public class ViewRecipe extends AppCompatActivity {//implements SearchView.OnQue
                 //position'i alinan veri silinecek
                 Tarif tarif = tariflerJava.get(position);
                 tarifDetaylariniGoster(tarif);
+                tariflerJava=tariflerJavaYedek;
             }
         });
        // WebServisiIleListeyiDoldur();
@@ -87,11 +90,12 @@ public class ViewRecipe extends AppCompatActivity {//implements SearchView.OnQue
     private void arama(String kelime){
         List<Tarif> filter = new ArrayList<>();
 
-        for (Tarif t: tariflerJava){
+        for (Tarif t: tariflerJavaYedek){
             if(t.getTarifAdi().toLowerCase().contains(kelime.toLowerCase())||t.getTarifEtiket().toLowerCase().contains(kelime.toLowerCase())||t.getTarifIcerik().toLowerCase().contains(kelime.toLowerCase())){
                 filter.add(t);
             }
         }
+        tariflerJava = filter;
         adapter = new CustomAdapter(context,filter);
         tarifler.setAdapter(adapter);
     }
@@ -140,6 +144,7 @@ public class ViewRecipe extends AppCompatActivity {//implements SearchView.OnQue
                 n.add(resimUrl.item(j).getFirstChild().getNodeValue());
             }
             tariflerJava.add(new Tarif(ad ,icerik, etiket, n));
+            tariflerJavaYedek.add(new Tarif(ad ,icerik, etiket, n));
         }
 
         adapter = new CustomAdapter(context,tariflerJava);

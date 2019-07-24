@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="isokur.xsl"?>
 <Tarih_Date Tarih="14.06.2019" Date="06/14/2019"  Bulten_No="2019/112" >
-	<Currency CrossOrder="0" Kod="USD" CurrencyCode="USD">
-			<Unit>Puding</Unit>
-			<Isim>kakao, şeker, nişasta</Isim>
-			<CurrencyName>#puding</CurrencyName>
-			<Picture>http://lezzet.blob.core.windows.net/images-category/sebze-yemekleri.jpg</Picture>
-			<Picture>http://lezzet.blob.core.windows.net/images-category/turkiye-turu.jpg</Picture>
-			<ForexSelling>5.8932</ForexSelling>
-			<BanknoteBuying>5.8785</BanknoteBuying>
-			<BanknoteSelling>5.9021</BanknoteSelling>
-			<CrossRateUSD/>
-			<CrossRateOther/>
-		
-	</Currency>
 	<Currency CrossOrder="1" Kod="AUD" CurrencyCode="AUD">
 			<Unit>Helva</Unit>
 			<Isim>un, yağ, şeker</Isim>
 			<CurrencyName>#helva</CurrencyName>
-			<Picture>http://lezzet.blob.core.windows.net/images-category/sebze-yemekleri.jpg</Picture>
+			<Picture>http://lezzet.blob.core.windows.net/images-xxlarge-recipe/ege-usulu-kasik-helvasi-e7974225-40e7-4e07-b935-653e7ca5fab2.jpg</Picture>
 			<ForexBuying>4.0490</ForexBuying>
 			<ForexSelling>4.0754</ForexSelling>
 			<BanknoteBuying>4.0303</BanknoteBuying>
@@ -27,11 +14,24 @@
 				<CrossRateOther/>
 		
 	</Currency>
+	<Currency CrossOrder="0" Kod="USD" CurrencyCode="USD">
+		<Unit>Puding</Unit>
+		<Isim>kakao, şeker, nişasta</Isim>
+		<CurrencyName>#puding</CurrencyName>
+		<Picture>http://lezzet.blob.core.windows.net/images-xxlarge-recipe/muzlu-ve-armutlu-puding-ec26b63b-a8af-4794-a126-f0f4ba0b38c7.jpg</Picture>
+		<Picture>http://lezzet.blob.core.windows.net/images-xxlarge-recipe/muzlu-yaban-mersinli-puding-5180423e-11bf-41a6-8d3e-04786bf2d4c0.jpg</Picture>
+		<ForexSelling>5.8932</ForexSelling>
+		<BanknoteBuying>5.8785</BanknoteBuying>
+		<BanknoteSelling>5.9021</BanknoteSelling>
+		<CrossRateUSD/>
+		<CrossRateOther/>
+
+	</Currency>
 	<Currency CrossOrder="1" Kod="AUD" CurrencyCode="AUD">
 		<Unit>Sulu Köfte</Unit>
 		<Isim>kıyma, baharat , yumurta</Isim>
 		<CurrencyName>#köfte</CurrencyName>
-		<Picture>http://lezzet.blob.core.windows.net/images-category/sebze-yemekleri.jpg</Picture>
+		<Picture>http://lezzet.blob.core.windows.net/images-xxlarge-recipe/terbiyeli_sulu_kofte-4b7c3391-8ee0-417e-8dc9-89d883056446.jpg</Picture>
 		<ForexBuying>4.0490</ForexBuying>
 		<ForexSelling>4.0754</ForexSelling>
 		<BanknoteBuying>4.0303</BanknoteBuying>
@@ -44,7 +44,7 @@
 		<Unit>Pilav</Unit>
 		<Isim>pirinç, tuz, yağ</Isim>
 		<CurrencyName>#pilav</CurrencyName>
-		<Picture>http://lezzet.blob.core.windows.net/images-category/sebze-yemekleri.jpg</Picture>
+		<Picture>http://lezzet.blob.core.windows.net/images-xxlarge-recipe/kepekli-pirinc-pilavi-fb8f4ae8-829b-4fb9-8d07-a7374df047ac.jpg</Picture>
 		<ForexBuying>4.0490</ForexBuying>
 		<ForexSelling>4.0754</ForexSelling>
 		<BanknoteBuying>4.0303</BanknoteBuying>
@@ -57,7 +57,7 @@
 		<Unit>Salata</Unit>
 		<Isim>marul, salatalık, limon</Isim>
 		<CurrencyName>#salata</CurrencyName>
-		<Picture>http://lezzet.blob.core.windows.net/images-category/sebze-yemekleri.jpg</Picture>
+		<Picture>http://lezzet.blob.core.windows.net/images-xxlarge-recipe/mercimekli-yesil-salata-adb0eeec-1087-4799-b150-3a18c5de8867.jpg</Picture>
 		<ForexBuying>4.0490</ForexBuying>
 		<ForexSelling>4.0754</ForexSelling>
 		<BanknoteBuying>4.0303</BanknoteBuying>
@@ -70,6 +70,7 @@
 		<Unit>Menemen</Unit>
 		<Isim>domates, yumurta, biber</Isim>
 		<CurrencyName>#menemen</CurrencyName>
+		<Picture>http://lezzet.blob.core.windows.net/images-xxlarge-recipe/beyaz_peynirli_menemen-619a8265-f773-4a2c-92d4-1ff67d4bd1f7.jpg</Picture>
 		<Picture>http://lezzet.blob.core.windows.net/images-category/sebze-yemekleri.jpg</Picture>
 		<ForexBuying>5.8826</ForexBuying>
 		<ForexBuying>4.0490</ForexBuying>
